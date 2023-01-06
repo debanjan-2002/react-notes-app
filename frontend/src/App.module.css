@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.error {
+    background-color: rgb(235, 79, 79);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+}
