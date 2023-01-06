@@ -1,0 +1,35 @@
+.note {
+    border: 1px solid rgb(137, 137, 137);
+    width: 18rem;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.note_header {
+    background-color: white;
+    padding: 15px;
+    border-radius: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.note_header__title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: rgb(61, 61, 61);
+}
+
+.note_header__date {
+    color: rgb(120, 120, 120);
+    font-style: italic;
+    font-weight: 500;
+}
+.note__description {
+    padding: 15px;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    white-space: pre-line;
+}
