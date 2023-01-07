@@ -57,6 +57,29 @@ const App = () => {
         }
     };
 
+    // DONE: Sending note "id" to the server to delete it from the database
+    // deleteNoteHandler() method is used to perform a DELETE request to the server
+    // This method is called from the NoteItem component
+    const deleteNoteHandler = async id => {
+        try {
+            // Using the fetch API to perform a DELETE request to the server
+            await fetch("http://localhost:5000/api/notes", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ id })
+            });
+
+            // Filtering the notes state by removing the note with the received "id"
+            const updateNotes = notes.filter(note => note._id !== id);
+            // Updating the state with the filtered notes
+            setNotes(updateNotes);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     return (
         <React.Fragment>
             {/* Header component */}
@@ -67,7 +90,9 @@ const App = () => {
                     <p className={styles.error}>Something went wrong!</p>
                 )}
                 {/* NoteList component (we pass the fetched notes array as props in this component) */}
-                {!hasError && <NoteList notes={notes} />}
+                {!hasError && (
+                    <NoteList notes={notes} onDelete={deleteNoteHandler} />
+                )}
             </div>
         </React.Fragment>
     );
