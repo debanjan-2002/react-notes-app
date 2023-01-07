@@ -9,16 +9,15 @@ const NoteItem = props => {
         props.onDelete(props.id);
     };
 
+    const date = new Date(props.lastModified).toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata"
+    });
+
     return (
         <div className={styles.note}>
             <div className={styles.note_header}>
                 <div className={styles.note_header__title}>{props.title}</div>
-                <div className={styles.note_header__date}>
-                    Created :{" "}
-                    {new Date(props.lastModified).toLocaleString("en-IN", {
-                        timeZone: "Asia/Kolkata"
-                    })}
-                </div>
+                <div className={styles.note_header__date}>Created : {date}</div>
             </div>
             <div className={styles.note__description}>
                 <div>{props.description}</div>
