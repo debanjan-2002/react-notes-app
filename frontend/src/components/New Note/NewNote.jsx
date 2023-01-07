@@ -23,7 +23,7 @@ const NewNote = props => {
 
     return (
         <form className={styles.form_control} onSubmit={formSubmitHandler}>
-            <div>
+            <div className={styles.input_container}>
                 <label htmlFor="title">Title</label>
                 <input
                     type="text"
@@ -33,7 +33,7 @@ const NewNote = props => {
                     value={formData.title}
                 />
             </div>
-            <div>
+            <div className={styles.input_container}>
                 <label htmlFor="description">Description</label>
                 <textarea
                     name="description"
@@ -44,7 +44,9 @@ const NewNote = props => {
                     value={formData.description}
                 ></textarea>
             </div>
-            <button type="submit">Add Note</button>
+            <div className={styles.button_container}>
+                <button type="submit">Add Note</button>
+            </div>
         </form>
     );
 };
