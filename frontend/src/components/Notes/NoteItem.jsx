@@ -14,7 +14,10 @@ const NoteItem = props => {
             <div className={styles.note_header}>
                 <div className={styles.note_header__title}>{props.title}</div>
                 <div className={styles.note_header__date}>
-                    {props.lastModified}
+                    Created :{" "}
+                    {new Date(props.lastModified).toLocaleString("en-IN", {
+                        timeZone: "Asia/Kolkata"
+                    })}
                 </div>
             </div>
             <div className={styles.note__description}>
