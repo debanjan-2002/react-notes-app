@@ -5,6 +5,10 @@ import styles from "./NoteItem.module.css";
 
 // TODO: Implement the delete button in the NoteItem component
 const NoteItem = props => {
+    const deleteNoteHandler = () => {
+        props.onDelete(props.id);
+    };
+
     return (
         <div className={styles.note}>
             <div className={styles.note_header}>
@@ -16,7 +20,9 @@ const NoteItem = props => {
             <div className={styles.note__description}>
                 <div>{props.description}</div>
                 <div className={styles.button_container}>
-                    <Button className="danger">Delete</Button>
+                    <Button className="danger" onClick={deleteNoteHandler}>
+                        Delete
+                    </Button>
                 </div>
             </div>
         </div>
