@@ -1,7 +1,9 @@
 import React from "react";
+import Button from "../UI/Button";
 
 import styles from "./NoteItem.module.css";
 
+// TODO: Implement the delete button in the NoteItem component
 const NoteItem = props => {
     return (
         <div className={styles.note}>
@@ -11,7 +13,12 @@ const NoteItem = props => {
                     {props.lastModified}
                 </div>
             </div>
-            <div className={styles.note__description}>{props.description}</div>
+            <div className={styles.note__description}>
+                <div>{props.description}</div>
+                <div className={styles.button_container}>
+                    <Button className="danger">Delete</Button>
+                </div>
+            </div>
         </div>
     );
 };
