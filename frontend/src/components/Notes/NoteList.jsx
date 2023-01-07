@@ -13,6 +13,7 @@ const NoteList = props => {
                     lastModified={note.lastModified.toLocaleString()}
                     title={note.title}
                     description={note.description}
+                    onDelete={props.onDelete}
                 />
             ))}
         </div>
