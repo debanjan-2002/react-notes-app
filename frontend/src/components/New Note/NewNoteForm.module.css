@@ -7,6 +7,7 @@
     gap: 1em;
     padding: 20px 20px;
     border-radius: 10px;
+    animation: form-appear 200ms ease-out forwards;
 }
 
 .input_container {
@@ -43,4 +44,27 @@
     display: flex;
     justify-content: center;
     gap: 1em;
+}
+
+@keyframes form-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    25% {
+        opacity: 0.25;
+        transform: translateY(-1rem);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(0rem);
+    }
+    75% {
+        opacity: 0.75;
+        transform: translateY(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
 }
