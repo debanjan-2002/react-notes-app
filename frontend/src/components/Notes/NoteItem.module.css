@@ -35,5 +35,19 @@
 }
 
 .button_container {
-    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.2em;
+    margin-top: 10px;
+}
+
+.button_container .delete_icon {
+    color: red;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.button_container .edit_icon {
+    color: rgb(195, 255, 0);
+    font-size: 1.2rem;
+    cursor: pointer;
 }

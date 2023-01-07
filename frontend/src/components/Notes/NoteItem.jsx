@@ -3,6 +3,10 @@ import Button from "../UI/Button";
 
 import styles from "./NoteItem.module.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+
 // TODO: Implement the delete button in the NoteItem component
 const NoteItem = props => {
     const deleteNoteHandler = () => {
@@ -22,9 +26,15 @@ const NoteItem = props => {
             <div className={styles.note__description}>
                 <div>{props.description}</div>
                 <div className={styles.button_container}>
-                    <Button className="danger" onClick={deleteNoteHandler}>
-                        Delete
-                    </Button>
+                    <FontAwesomeIcon
+                        className={styles.edit_icon}
+                        icon={faPenToSquare}
+                    />
+                    <FontAwesomeIcon
+                        className={styles.delete_icon}
+                        icon={faTrash}
+                        onClick={deleteNoteHandler}
+                    />
                 </div>
             </div>
         </div>
