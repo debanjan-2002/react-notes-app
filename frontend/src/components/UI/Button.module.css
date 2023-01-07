@@ -1,0 +1,17 @@
+.button {
+    border: 1px solid green;
+    padding: 10px 20px;
+    width: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.button.danger {
+    background-color: rgb(255, 94, 94);
+}
+
+.button.success {
+    background-color: lightgreen;
+}
