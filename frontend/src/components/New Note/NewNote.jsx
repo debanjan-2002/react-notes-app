@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import NewNoteForm from "./NewNoteForm";
 import styles from "./NewNote.module.css";
+import Button from "../UI/Button";
 
 // DONE: Toggling the new form visibility and sending the data to the parent component
 const NewNote = props => {
@@ -22,7 +23,9 @@ const NewNote = props => {
         <React.Fragment>
             {!showNewForm && (
                 <div className={styles.button_container}>
-                    <button onClick={openNewFormHandler}>Add Note</button>
+                    <Button onClick={openNewFormHandler} className="success">
+                        Add Note
+                    </Button>
                 </div>
             )}
             {showNewForm && (

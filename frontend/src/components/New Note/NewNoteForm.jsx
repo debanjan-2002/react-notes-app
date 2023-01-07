@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../UI/Button";
 
 import styles from "./NewNoteForm.module.css";
 
@@ -55,10 +56,16 @@ const NewNoteForm = props => {
                 ></textarea>
             </div>
             <div className={styles.button_container}>
-                <button type="submit">Add Note</button>
-                <button type="button" onClick={props.onClose}>
+                <Button type="submit" className="success">
+                    Add Note
+                </Button>
+                <Button
+                    type="button"
+                    onClick={props.onClose}
+                    className="danger"
+                >
                     Cancel
-                </button>
+                </Button>
             </div>
         </form>
     );
