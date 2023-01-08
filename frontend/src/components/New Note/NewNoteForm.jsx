@@ -28,6 +28,7 @@ const NewNoteForm = props => {
 
         // We pass the stored data from the formData state to the parent component for futher processing
         props.onSubmit(formData);
+        props.onClose();
         // After the data is sent to the parent component, we reset (clear) the input and textarea
         setFormData({ title: "", description: "" });
     };
