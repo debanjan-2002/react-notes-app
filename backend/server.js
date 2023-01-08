@@ -47,6 +47,17 @@ app.delete("/api/notes", async (req, res) => {
     res.status(200).json(deletedNote);
 });
 
+// DONE: Set up the route to update a note with given id
+app.put("/api/notes", async (req, res) => {
+    // Destructuring the id and modified note from the request body
+    // It is sent from the frontend
+    const { id, modifiedNote } = req.body;
+    // Updating the note with _id : id with the modified note
+    await Note.findByIdAndUpdate(id, modifiedNote);
+    // Sending response back to frontend
+    res.status(200).json("success");
+});
+
 // Setting up PORT
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
