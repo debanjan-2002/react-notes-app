@@ -43,6 +43,7 @@ const NewNoteForm = props => {
                     id="title"
                     onChange={inputChangeHandler}
                     value={formData.title}
+                    autoFocus
                 />
             </div>
             <div className={styles.input_container}>

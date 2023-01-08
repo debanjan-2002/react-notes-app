@@ -58,6 +58,7 @@ const NoteItem = props => {
                                 id="title"
                                 defaultValue={props.title}
                                 ref={titleRef}
+                                autoFocus
                             />
                         </div>
                         <div className={styles.input_container}>
