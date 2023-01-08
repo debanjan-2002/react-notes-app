@@ -14,6 +14,7 @@ const NoteList = props => {
                     title={note.title}
                     description={note.description}
                     onDelete={props.onDelete}
+                    onEdit={props.onEdit}
                 />
             ))}
         </div>
