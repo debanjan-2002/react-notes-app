@@ -80,6 +80,47 @@ const App = () => {
         }
     };
 
+    // DONE: Updating a note with "id" with "updatedNote" in both frontend and backend
+    // editNoteHandler() is used to perform a PUT requestto the server
+    // This method is called from the NoteItem component
+    const editNoteHandler = async (id, updatedNote) => {
+        // Storing the new date at the time of updation
+        const updatedLastModified = Date.now();
+
+        // Making a new note object and adding the new lastModified time
+        const modifiedNote = {
+            ...updatedNote,
+            lastModified: updatedLastModified
+        };
+        try {
+            // Using the fetch API to perform the PUT request to the server
+            await fetch("http://localhost:5000/api/notes", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ id, modifiedNote })
+            });
+
+            // Making a new array after updating the note array of the state with the updated note
+            const updatedNotes = notes.map(note => {
+                if (note._id === id) {
+                    return {
+                        ...note,
+                        ...modifiedNote,
+                        // TODO: Temporary fix for Invalid date issue
+                        lastModified: new Date(updatedLastModified)
+                    };
+                }
+                return note;
+            });
+            // Updating the state with the new updatedNote array
+            setNotes(updatedNotes);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     return (
         <React.Fragment>
             {/* Header component */}
@@ -91,7 +132,11 @@ const App = () => {
                 )}
                 {/* NoteList component (we pass the fetched notes array as props in this component) */}
                 {!hasError && (
-                    <NoteList notes={notes} onDelete={deleteNoteHandler} />
+                    <NoteList
+                        notes={notes}
+                        onDelete={deleteNoteHandler}
+                        onEdit={editNoteHandler}
+                    />
                 )}
             </div>
         </React.Fragment>
